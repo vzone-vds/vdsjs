@@ -2,9 +2,9 @@ import { VdsRPC } from "./VdsRPC";
 import { IContractsRepoData } from "./ContractsRepo";
 import { Contract } from "./Contract";
 /**
- * The `Vds` class is an instance of the `vdsjs` API.
+ * The `Qtum` class is an instance of the `vdsjs` API.
  *
- * @param providerURL URL of the vdsd RPC service.
+ * @param providerURL URL of the qtumd RPC service.
  * @param repoData Information about Solidity contracts.
  */
 export declare class Vds extends VdsRPC {
