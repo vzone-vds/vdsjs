@@ -1,11 +1,5 @@
 The VDS JavaScript library for Smart Contract development.
 
-See [documentation](https://qtumproject.github.io/qtumjs-doc/).
-
-See [中文 API 文档](https://qtumproject.github.io/qtumjs-doc-cn/).
-
-See [companion tutorial](https://github.com/qtumproject/qtumbook/blob/master/en/part2/erc20-js.md).
-
 # Install
 
 ```
@@ -37,51 +31,3 @@ async function transfer(fromAddr, toAddr, amount) {
 }
 ```
 
-The [full source code](https://github.com/qtumproject/qtumbook-mytoken-qtumjs-cli).
-
-> This example uses async/await (supported natively by Node 8+).
-
-# Running Tests
-
-```
-docker run -it --rm \
-  --name vdsjs \
-  -v `pwd`:/dapp \
-  -p 3889:3889 \
-  hayeah/vdsportal
-```
-
-Configure VDS_RPC for deployment tool:
-
-Enter into container:
-
-```
-docker exec -it vdsjs sh
-```
-
-Generate initial blocks:
-
-```
-qcli importprivkey cMbgxCJrTYUqgcmiC1berh5DFrtY1KeU4PXZ6NZxgenniF1mXCRk
-qcli generatetoaddress 600 qUbxboqjBRp96j3La8D1RYkyqx5uQbJPoW
-
-qcli getbalance
-
-2000000.00000000
-```
-
-Deploy test contracts:
-
-```
-export VDS_RPC=http://vds:test@localhost:3889
-export VDS_SENDER=qUbxboqjBRp96j3La8D1RYkyqx5uQbJPoW
-
-sh deploy-test-contracts.sh
-```
-
-Build and run tests:
-
-```
-npm build
-npm run test
-```
