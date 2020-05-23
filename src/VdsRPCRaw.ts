@@ -26,13 +26,11 @@ export class VdsRPCRaw {
     private idNonce: number
     private _api: AxiosInstance
 
-    constructor(private _baseURL: string) {
+    constructor(private _baseURL: string, private isHrefUrl: boolean = false) {
         this.idNonce = 0
-
         const url = new URL(_baseURL)
-
         const config: AxiosRequestConfig = {
-            baseURL: url.href,
+            baseURL: isHrefUrl ? url.href : url.origin,
             // don't throw on non-200 response
             validateStatus: () => true,
         }
